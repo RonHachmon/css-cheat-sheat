@@ -40,10 +40,10 @@ a, a:visited, a:hover, a:active {
     grid-template-columns: auto auto auto;
 
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 610px) {
     .grid-container{
         grid-template-columns: auto;
-    
+        grid-row-gap: 3rem;
     }
 }
 .content{
@@ -68,14 +68,20 @@ a, a:visited, a:hover, a:active {
 .box-title{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    background-color: #1F6FEB;
+    background-color: #2965f1;
     text-align: center;
     color: #fff;
     text-transform: capitalize;
 }
+.css-text{
+    color: #2965f1;
+}
 
 .porfolio-link{
-    color: rgb(14, 137, 213);
+    color: #2965f1;
+}
+.porfolio-link:hover{
+    text-decoration: underline;
 }
 
 nav ul {
@@ -91,9 +97,6 @@ nav a {
     padding: 0.5em 1em;
 }
 
-a:hover{
-    text-decoration: underline;
-}
 /* Main section styling */
 main {
     padding: 1em;

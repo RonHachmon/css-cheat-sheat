@@ -1,6 +1,12 @@
 /* Tool tip */
 #tool-tip{
     position: relative;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+#tool-tip:hover{
+    text-decoration: none;
 }
 
 #tool-tip>span{
@@ -9,12 +15,14 @@
     top: -1rem;
     padding: .1rem .3rem;
     background-color: #4a56ff;
-    font-size: .9rem;
+    font-size: 1.5rem;
     visibility: hidden;
     opacity: 0;
     transform: translateY(1rem);
+    text-decoration: none;
 }
 #tool-tip:hover>span {
+   text-decoration: none;
     transform: translateY(0);
     visibility: visible;
     opacity: 0.9;
@@ -37,7 +45,7 @@
  .spinner {
    border: 4px solid rgba(247, 247, 247, 0.1);
    border-left-color: rgba(247, 247, 247, 0.1);
-   border-left-color: #000;
+   border-left-color: #2965f1;
    border-radius: 50%;
    width: 50px;
    height: 50px;
@@ -60,30 +68,66 @@
   }
   .circle {
     fill: none;
-    stroke: #4CAF50;
+    stroke: #0254BD;
     stroke-width: 7;
     stroke-dasharray: 283;
     stroke-dashoffset: 283;
-    animation: circle-draw 2s ease forwards
+    animation: circle-draw 3s ease infinite
   }
+
   
   .check {
     fill: none;
-    stroke: #4CAF50;
+    stroke: #0254BD;
     stroke-width: 7;
     stroke-dasharray: 80;
     stroke-dashoffset: 80;
-    animation: check-draw 1s ease forwards 2s
+    animation: check-draw 3s ease infinite 
   }
-  
-  @keyframes circle-draw {
-    to {
+  @keyframes check-draw {
+   0% {
+      stroke-dashoffset: 80;
+    }
+   50% {
+      stroke-dashoffset: 80;
+   }
+    100% {
       stroke-dashoffset: 0;
     }
   }
   
-  @keyframes check-draw {
-    to {
+  @keyframes circle-draw {
+   0% {
+      stroke-dashoffset: 283;
+    }
+    50% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .secret-logo{
+   width: 100px;
+   height: 100px;
+   display: none;
+  }
+  .secret-svg{
+   fill: none;
+   stroke: #0254BD;
+   stroke-width: 2;
+   stroke-dasharray: 80;
+   stroke-dashoffset: 80;
+   animation: secret-draw 4s ease infinite 
+
+  }
+  
+  @keyframes secret-draw {
+   0% {
+      stroke-dashoffset: 80;
+    }
+    100% {
       stroke-dashoffset: 0;
     }
   }
@@ -130,7 +174,6 @@
  }
  
  .card-back {
-    color: white;
     background: url(https://m.media-amazon.com/images/I/61hiEHj2o4L._AC_UF1000,1000_QL80_.jpg) no-repeat center center/cover;
     transform: rotateY(180deg);
  }

@@ -1,11 +1,102 @@
-const OBELISK ="https://m.media-amazon.com/images/I/61hiEHj2o4L._AC_UF1000,1000_QL80_.jpg"
-const SLIFER = "https://tcgplayer-cdn.tcgplayer.com/product/156036_200w.jpg"
-const THe_WINGED_DRAGON = "https://kronozio.blob.core.windows.net/images/card/2f1128bb459647c194499ac069f8491c_front.jpg"
-const BLUE_EYE_DRAGON = "https://images.production.sportscardinvestor.com/6783_5368_4625_EN001"
+const OBELISK ="https://m.media-amazon.com/images/I/61hiEHj2o4L._AC_UF1000,1000_QL80_.jpg";
+const SLIFER = "https://tcgplayer-cdn.tcgplayer.com/product/156036_200w.jpg";
+const THE_WINGED_DRAGON = "https://kronozio.blob.core.windows.net/images/card/2f1128bb459647c194499ac069f8491c_front.jpg";
+const BLUE_EYE_DRAGON = "https://images.production.sportscardinvestor.com/6783_5368_4625_EN001";
+const SECRET ="https://i.pinimg.com/550x/b5/8d/04/b58d0452e86a3e9e1b10516bcfd7acdc.jpg"
 
-const cardsURL=[THe_WINGED_DRAGON,SLIFER,OBELISK,BLUE_EYE_DRAGON]
-const choosenCard = cardsURL[Math.floor(Math.random()*cardsURL.length)]
+const cardWeights = {
+    [THE_WINGED_DRAGON]: 1,
+    [SLIFER]: 1,             
+    [OBELISK]: 1,             
+    [BLUE_EYE_DRAGON]: 1,      
+    [SECRET]: 0.2,           
+  };
+const getRandomCard = () => {
+  // Calculate total weight for normalization
+  const totalWeight = Object.values(cardWeights).reduce((acc, weight) => acc + weight, 0);
 
-const backgroundProps = " no-repeat center center/cover"
+  // Generate a random number between 0 and the total weight
+  const randomValue = Math.random() * totalWeight;
 
-document.querySelector('.card-back').style.background ="url("+choosenCard+")"+backgroundProps;
+  // Iterate through cards and weights, accumulating weight values
+  let accumulatedWeight = 0;
+  for (const [cardUrl, weight] of Object.entries(cardWeights)) {
+    accumulatedWeight += weight;
+    if (randomValue <= accumulatedWeight) {
+      return cardUrl;
+    }
+  }
+
+  // If no card is chosen due to rounding errors, return a random default card
+  return cardsURL[Math.floor(Math.random() * cardsURL.length)];
+};
+
+const blueScreenOfDeath ="https://techkick.in/wp-content/uploads/2024/04/windows10-bsod2.jpg"
+
+const chosenCard = getRandomCard();
+
+const backgroundProps = " no-repeat center center/cover";
+const cardElement = document.querySelector('.card-back');
+
+cardElement.onmouseout = () => {
+    const chosenCard = getRandomCard();
+    setTimeout(() => {
+        cardElement.style.background = "url(" + chosenCard + ")" + backgroundProps;
+    }, 200);
+};
+
+let hoverCounter = 0;
+const toolTip = document.getElementById('tool-tip');
+
+const displayBlueScreenOfDeath = () => {
+    document.getElementById("body").style.backgroundImage = "url(" + blueScreenOfDeath + ")";
+    document.querySelectorAll(".box").forEach((box) => {
+        box.style.display = "none";
+    });
+
+    document.querySelector("header").style.display = "none";
+    document.querySelector("footer").style.display = "none";
+    
+}
+const resetBlueScreen = () => {
+    toolTip.textContent = "Hover me 😜";
+    document.getElementById("body").style.backgroundImage = "";
+    document.querySelector("header").style.display = "";
+    document.querySelector("footer").style.display = "";
+    document.querySelectorAll(".box").forEach((box) => {
+        box.style.display = "";
+    });
+    
+}
+toolTip.onmouseenter = () => {
+    hoverCounter++;
+    switch (hoverCounter) {
+        case 2:
+          toolTip.textContent = "Don't hover 😡";
+          break;
+        case 3:
+          displayBlueScreenOfDeath();
+          setTimeout(() => {
+            resetBlueScreen();
+          }, 5000);
+          break;
+      }
+}
+
+let animationCount = 0;
+const animatedCircle = document.querySelector('.circle');
+const animatedSecret = document.querySelector('.secret-svg');
+
+animatedCircle.addEventListener('animationiteration', () => {
+  animationCount++;
+  if(animationCount % 13 === 0) {
+    document.querySelector(".secret-logo").style.display = "block";
+    document.querySelector(".logo").style.display = "none";
+  }
+});
+animatedSecret.addEventListener('animationiteration', () => {
+  animationCount++;
+  document.querySelector(".secret-logo").style.display= "none";
+  document.querySelector(".logo").style.display = "block";
+
+});
