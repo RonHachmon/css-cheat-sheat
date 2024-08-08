@@ -21,23 +21,27 @@
  }
  /*End Tool tip */
 
+ .fa-solid{
+   color: #0254BD;
+ }
  
  /* Drop Shadow */
  .first {
     font-size: 5rem;
-    filter: drop-shadow(5px 0px 5px  #898bffb6); /* horizontal vertical blur and color */
+    filter: drop-shadow(5px 0px 5px  #fdfdfdb6); /* horizontal vertical blur and color */
  } 
  /*End Drop Shadow */
 
 
 /* Spinner */
  .spinner {
-    border: 4px solid rgba(12, 9, 8, 0.1);
-    border-left-color: #05222c;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin-full 1s linear infinite;
+   border: 4px solid rgba(247, 247, 247, 0.1);
+   border-left-color: rgba(247, 247, 247, 0.1);
+   border-left-color: #000;
+   border-radius: 50%;
+   width: 50px;
+   height: 50px;
+   animation: spin-full 1s linear infinite;
  }
 
  @keyframes spin-full {
@@ -87,8 +91,8 @@
 
 /* Spinning Card */
   .card {
-    perspective: 900px;
-    aspect-ratio: 2/3;
+   perspective: 900px;
+   aspect-ratio: 2/3;
    cursor:pointer;
    width: 200px;
    height: 300px;
@@ -117,12 +121,10 @@
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
-    border: 1px solid #ccc;
     border-radius: 5px;
  }
 
  .card-front {
-    color: yellow;
     background: url(https://i.ebayimg.com/images/g/HWkAAOSwGlxlTx-E/s-l1200.webp) no-repeat center center/cover;
     background-color: #333;
  }
@@ -133,3 +135,25 @@
     transform: rotateY(180deg);
  }
  /* END Spinning Card */
+
+ /* Neon Text */
+.neon-text {
+   font-weight: 700;
+   animation: glow 1s infinite ease-in-out alternate;
+   color: #fff;
+}
+@keyframes glow {
+   0% {
+      text-shadow:
+         0 0 5px #ffffff4f, 0 0 10px #ffffff4f,
+         0 0 20px #ffab104f, 0 0 40px #ffab104f;
+   }
+
+   100% {
+      text-shadow:
+         0 0 5px #ffffffce, 0 0 10px #fff,
+         0 0 10px #ffb730, 0 0 40px #ffab10;
+   }
+}
+
+/* END Neon Text */
