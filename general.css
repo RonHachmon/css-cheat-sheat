@@ -12,16 +12,16 @@ body {
     line-height: 1.6;
     display: flex;
     flex-direction: column;
+    background-color: #0D1117;
     min-height: 100vh; /* Set a minimum height of the viewport height */
 }
 
 /* Basic styling for the header */
 header {
-    background-color: #05222c;
+    background-color: #161B22;
     color: #fff;
     text-align: center;
     padding: 1em 0;
-    border-bottom: 2px solid rgb(14, 137, 213);
 }
 
 /* Navigation styling */
@@ -40,31 +40,38 @@ a, a:visited, a:hover, a:active {
     grid-template-columns: auto auto auto;
 
 }
+@media screen and (max-width: 500px) {
+    .grid-container{
+        grid-template-columns: auto;
+    
+    }
+}
 .content{
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 .box{
     display: flex;
     flex-direction: column;
-    border: 2px solid rgb(5, 0, 4);
-    box-shadow: 4px rebeccapurple;
-    border-radius: 40px;
+    border: 2px solid rgb(49, 48, 49);
+    border-radius: 20px;
     min-width: 10rem;
     min-height: 10rem;
-}
-.box:hover{
-    filter: drop-shadow(0px 3px 5px  #00000eb6);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    background: linear-gradient(45deg, rgba(255,255,255,0.05) -20%, rgba(255,255,255,0.2) 30%, rgba(255,255,255,0.05) 90%);
 }
 .box-title{
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    background-color: #43afe9;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #1F6FEB;
     text-align: center;
-    border-bottom: 2px solid  rgb(14, 137, 213);
+    color: #fff;
+    text-transform: capitalize;
 }
 
 .porfolio-link{
@@ -84,6 +91,9 @@ nav a {
     padding: 0.5em 1em;
 }
 
+a:hover{
+    text-decoration: underline;
+}
 /* Main section styling */
 main {
     padding: 1em;
@@ -91,7 +101,8 @@ main {
 
 /* Footer styling */
 footer {
-    background-color: #333;
+    background-color: #161B22;
+    color: #fff;
     text-align: center;
     padding: 1em 0;
     margin-top: auto;
