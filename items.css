@@ -43,7 +43,7 @@
 
 /* Spinner */
  .spinner {
-   border: 4px solid rgba(247, 247, 247, 0.1);
+   border: 10px solid rgba(247, 247, 247, 0.1);
    border-left-color: rgba(247, 247, 247, 0.1);
    border-left-color: #2965f1;
    border-radius: 50%;
@@ -119,7 +119,7 @@
    stroke-width: 2;
    stroke-dasharray: 80;
    stroke-dashoffset: 80;
-   animation: secret-draw 4s ease infinite 
+   animation: secret-draw 3s ease infinite 
 
   }
   
@@ -184,6 +184,7 @@
    font-weight: 700;
    animation: glow 1s infinite ease-in-out alternate;
    color: #fff;
+   font-size: 2.5rem;
 }
 @keyframes glow {
    0% {
