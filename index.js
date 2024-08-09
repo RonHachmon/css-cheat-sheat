@@ -60,7 +60,7 @@ const displayBlueScreenOfDeath = () => {
 }
 const resetBlueScreen = () => {
     toolTip.textContent = "Hover me 😜";
-    document.getElementById("body").style.backgroundImage = "";
+    document.getElementById("body").style.background = "";
     document.querySelector("header").style.display = "";
     document.querySelector("footer").style.display = "";
     document.querySelectorAll(".box").forEach((box) => {
