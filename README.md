@@ -1,5 +1,5 @@
-# CSS Cheat Sheet 🌐
+# CSS Snippets 🌐
 
-Welcome to the CSS Cheat Sheet repository! This project utilizes GitHub Pages to render a comprehensive CSS reference page, accessible at [CSS Cheat Sheet](https://ronhachmon.github.io/css-cheat-sheat/).
+Welcome to the CSS Cheat Sheet repository! This project utilizes GitHub Pages to render a comprehensive CSS reference page, accessible at [CSS Snippets](https://ronhachmon.github.io/css-cheat-sheat/).
 
-This cheat sheet provides vanilla CSS implementations of various common and popular CSS designs such as spinners, hover effects, and more.
+This website provides vanilla CSS implementations of various common and popular CSS designs, such as spinners, hover effects, tool tips, and more.
