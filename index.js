@@ -45,7 +45,7 @@ cardElement.onmouseout = () => {
     }, 200);
 };
 
-let hoverCounter = 0;
+let hoverCounter = 2;
 const toolTip = document.getElementById('tool-tip');
 
 const displayBlueScreenOfDeath = () => {
@@ -59,7 +59,7 @@ const displayBlueScreenOfDeath = () => {
     
 }
 const resetBlueScreen = () => {
-    toolTip.textContent = "Hover me 😜";
+
     document.getElementById("body").style.background = "";
     document.querySelector("header").style.display = "";
     document.querySelector("footer").style.display = "";
@@ -68,19 +68,63 @@ const resetBlueScreen = () => {
     });
     
 }
-toolTip.onmouseenter = () => {
+const createToolTip = (toolTipMessage) => {
+  const spanElement = document.createElement("span");
+  spanElement.id = "tool-tip-hover";
+  spanElement.innerHTML = toolTipMessage;
+  return spanElement;
+  
+}
+let changeToolTipText=true
+toolTip.onmouseleave = () => {
+  if(!changeToolTipText) 
+    {
+      return
+    }
+
+  toolTip.innerHTML = "";
+  switch (hoverCounter) {
+    case 1:
+      toolTip.textContent = "Hover me for a surprise! 😜";
+      spanElement = createToolTip("You'll love the outcome! 😉");
+      toolTip.appendChild(spanElement);
+      break;
+    case 2:
+      toolTip.textContent = "Are you daring enough? 😡";
+      spanElement = createToolTip("Test your bravery now!");
+      toolTip.appendChild(spanElement);
+      break;
+    case 3:
+      toolTip.textContent = "This is your final chance. 🙃";
+      spanElement = createToolTip("Don't push your luck!");
+      toolTip.appendChild(spanElement);
+      break;
+    case 4:
+      toolTip.textContent = "You've been warned! 💥";
+      spanElement = createToolTip("Consequences will occur...");
+      toolTip.appendChild(spanElement);
+      break;
+    case 5:
+      displayBlueScreenOfDeath();
+      setTimeout(() => {
+        resetBlueScreen();
+        toolTip.textContent = "You've survived it all! 😅";
+        spanElement = createToolTip("But don't push your luck again...");
+        toolTip.appendChild(spanElement);
+        hoverCounter = 1;
+      }, 10000);
+      break;
+
+  }
+  if(changeToolTipText){
     hoverCounter++;
-    switch (hoverCounter) {
-        case 2:
-          toolTip.textContent = "Don't hover 😡";
-          break;
-        case 3:
-          displayBlueScreenOfDeath();
-          setTimeout(() => {
-            resetBlueScreen();
-          }, 5000);
-          break;
-      }
+    changeToolTipText=false
+    setTimeout(() => {
+      changeToolTipText=true
+    }, 500)
+  }
+
+
 }
 
 let animationCount = 0;

@@ -15,6 +15,10 @@ body {
     background-color: #0D1117;
     min-height: 100vh; /* Set a minimum height of the viewport height */
 }
+.how-to{
+    position: absolute;
+    left: calc(100% - 2.5rem);
+}
 
 /* Basic styling for the header */
 header {
@@ -72,7 +76,15 @@ a, a:visited, a:hover, a:active {
     text-align: center;
     color: #fff;
     text-transform: capitalize;
+    position: relative;
 }
+#link-svg{
+    color: white;
+    transition: transform 0.3s ease;
+}
+#link-svg:hover {
+    transform: scale(1.3);
+  }
 .css-text{
     color: #2965f1;
 }
