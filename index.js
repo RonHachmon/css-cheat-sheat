@@ -49,7 +49,7 @@ let hoverCounter = 0;
 const toolTip = document.getElementById('tool-tip');
 
 const displayBlueScreenOfDeath = () => {
-    document.getElementById("body").style.backgroundImage = "url(" + blueScreenOfDeath + ")";
+    document.getElementById("body").style.background = "url(" + blueScreenOfDeath + ")"+backgroundProps;
     document.querySelectorAll(".box").forEach((box) => {
         box.style.display = "none";
     });
